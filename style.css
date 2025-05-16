@@ -1,0 +1,249 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(135deg, #ffe4e1, #e0ffff);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #333;
+  }
+  
+  header {
+    background: #ffb6c1;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .settings-link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #ff69b4;
+    font-weight: bold;
+    border: 2px solid #ff69b4;
+  }
+  
+  .timer-section, .todo-section, .pet-section, .motivation-section {
+    background: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  #time {
+    font-size: 3em;
+    margin: 10px 0;
+    color: #ff69b4;
+  }
+  
+  .buttons button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 12px;
+    border: none;
+    background: #ff69b4;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .buttons button:hover {
+    background: #ff1493;
+  }
+  
+  .todo-section input {
+    padding: 10px;
+    width: 70%;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .todo-section button {
+    padding: 10px 15px;
+    border: none;
+    background: #87cefa;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  #todo-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+  
+  #todo-list li {
+    background: #f0f8ff;
+    margin: 5px auto;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  #todo-list li.completed {
+    text-decoration: line-through;
+    background: #d3ffd3;
+  }
+  
+  .pet-section img {
+    width: 200px;
+    margin-top: 10px;
+  }
+  
+  .motivation-section p {
+    font-style: italic;
+    font-size: 1.2em;
+    color: #8b008b;
+  }
+  body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(135deg, #ffe4e1, #e0ffff);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #333;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  /* 🌟 Add twinkling star background using a pseudo-element */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: transparent url('images/starring.png') repeat;
+    opacity: 0.4;
+    animation: twinkle 4s infinite ease-in-out;
+    z-index: -1;
+  }
+  
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+  }
+  
+  header {
+    background: #ffb6c1;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .settings-link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #ff69b4;
+    font-weight: bold;
+    border: 2px solid #ff69b4;
+  }
+  
+  .timer-section, .todo-section, .pet-section, .motivation-section {
+    background: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  #time {
+    font-size: 3em;
+    margin: 10px 0;
+    color: #ff69b4;
+  }
+  
+  .buttons button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 12px;
+    border: none;
+    background: #ff69b4;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .buttons button:hover {
+    background: #ff1493;
+  }
+  
+  .todo-section input {
+    padding: 10px;
+    width: 70%;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .todo-section button {
+    padding: 10px 15px;
+    border: none;
+    background: #87cefa;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  #todo-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+  
+  #todo-list li {
+    background: #f0f8ff;
+    margin: 5px auto;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  #todo-list li.completed {
+    text-decoration: line-through;
+    background: #d3ffd3;
+  }
+  
+  .pet-section img {
+    width: 200px;
+    margin-top: 10px;
+  }
+  
+  .motivation-section p {
+    font-style: italic;
+    font-size: 1.2em;
+    color: #8b008b;
+  }
+  .mood-section {
+    background: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  #mood-options span {
+    font-size: 2em;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  
+  #mood-options span:hover {
+    transform: scale(1.2);
+  }
+  

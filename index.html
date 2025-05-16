@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pawmodoro</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>🐾 Pawmodoro</h1>
+    <a href="settings.html" class="settings-link">⚙ Settings</a>
+  </header>
+
+  <!-- Pet GIF moved here -->
+  <section class="pet-section">
+    <h2>🎁 Your Virtual Pet</h2>
+    <img id="pet-image" src="pet1.gif" alt="Pet" />
+  </section>
+
+  <section class="timer-section">
+    <div id="time">25:00</div>
+    <div class="buttons">
+      <button id="start">Start</button>
+      <button id="pause">Pause</button>
+      <button id="reset">Reset</button>
+    </div>
+    <p>Pomodoros Completed: <span id="completed-count">0</span></p>
+  </section>
+
+  <section class="todo-section">
+    <h2>✅ To-Do Checklist</h2>
+    <form id="todo-form">
+      <input type="text" id="todo-input" placeholder="Add a task..." required/>
+      <button type="submit">Add</button>
+    </form>
+    <p id="task-stats">0/0 tasks completed</p>
+    <ul id="todo-list"></ul>
+  </section>
+
+  <section class="motivation-section">
+    <h2>🌟 Daily Motivation</h2>
+    <p id="motivation-text">Stay focused and keep going!</p>
+  </section>
+
+  <audio id="finish-sound" src="finish.mp3" preload="auto"></audio>
+  <section class="mood-section">
+    <h2>How are you feeling today?</h2>
+    <div id="mood-options">
+      <span onclick="selectMood('happy')">😊</span>
+      <span onclick="selectMood('neutral')">😐</span>
+      <span onclick="selectMood('sad')">😔</span>
+    </div>
+    <p>Your current mood: <span id="current-mood">Not selected</span></p>
+  </section>
+  
+  <script src="script.js"></script>
+  <!-- Confetti CDN -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+</body>
+
+</html>
