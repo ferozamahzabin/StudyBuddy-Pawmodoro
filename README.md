@@ -31,16 +31,13 @@ A cute and effective Pomodoro study timer that rewards your progress with an evo
 ## 🧰 Tech Stack
 
 ### Frontend
-- HTML5 + CSS3 + JavaScript (Vanilla)
-- TimerView & PetView classes for UI rendering
+- HTML5 + CSS3 
 
 ### Backend
-- Node.js with Express.js
+- Javascript, Node.js
 - MVC Architecture (Model-View-Controller)
 
-### Database
-- MongoDB
-- Mongoose ODM
+
 
 ---
 
