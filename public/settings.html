@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pawmodoro Settings</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body data-theme="#ff69b4">
+  <nav class="navbar">
+    <a href="index.html">← Back to Pawmodoro</a>
+  </nav>
+
+  <section class="settings-section">
+    <h2>⚙ Settings</h2>
+    <ul class="settings-list">
+      <li onclick="changeTheme()">Theme</li>
+      <li onclick="toggleDarkMode()">Appearance</li>
+      <li onclick="resetAllProgress()">Reset Progress</li>
+      <li onclick="toggleNotifications()">Notification</li>
+    </ul>
+  </section>
+
+  <script>
+    // --- MODEL ---
+    let userSettings = {
+      darkMode: false,
+      themeColor: '#ff69b4',
+      notifications: false
+    };
+
+    // --- VIEW: Apply Settings ---
+    function applyUserSettings() {
+      document.body.classList.toggle('dark-mode', userSettings.darkMode);
+      document.documentElement.style.setProperty('--theme-color', userSettings.themeColor);
+      document.body.setAttribute('data-theme', userSettings.themeColor);
+    }
+
+    // --- CONTROLLER: Toggle Dark Mode ---
+    function toggleDarkMode() {
+      userSettings.darkMode = !userSettings.darkMode;
+      saveSettings();
+      applyUserSettings();
+      alert(userSettings.darkMode ? '🌙 Dark Mode enabled!' : '☀ Light Mode enabled!');
+    }
+
+    // --- CONTROLLER: Change Theme Color ---
+    function changeTheme() {
+      const input = document.createElement('input');
+      input.type = 'color';
+      input.value = userSettings.themeColor;
+      input.onchange = () => {
+        userSettings.themeColor = input.value;
+        saveSettings();
+        applyUserSettings();
+      };
+      input.click();
+    }
+
+    // --- CONTROLLER: Reset All Progress ---
+    function resetAllProgress() {
+      if (confirm('Are you sure you want to reset all progress?')) {
+        localStorage.clear();
+        userSettings = { darkMode: false, themeColor: '#ff69b4', notifications: false };
+        saveSettings();
+        applyUserSettings();
+        alert('✅ All progress has been reset.');
+      }
+    }
+
+    // --- CONTROLLER: Toggle Notifications ---
+    function toggleNotifications() {
+      if (!userSettings.notifications) {
+        Notification.requestPermission().then(permission => {
+          if (permission === 'granted') {
+            userSettings.notifications = true;
+            saveSettings();
+            applyUserSettings();
+            alert('🔔 Notifications enabled!');
+          }
+        });
+      } else {
+        userSettings.notifications = false;
+        saveSettings();
+        applyUserSettings();
+        alert('🔕 Notifications disabled.');
+      }
+    }
+
+    // --- CONTROLLER: Save & Load Settings ---
+    function saveSettings() {
+      localStorage.setItem('userSettings', JSON.stringify(userSettings));
+      fetch('/api/settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(userSettings)
+      }).catch(err => console.error('Settings sync failed:', err));
+    }
+
+    function loadSettings() {
+      const saved = localStorage.getItem('userSettings');
+      if (saved) userSettings = JSON.parse(saved);
+      applyUserSettings();
+    }
+
+    // --- INIT ---
+    loadSettings();
+  </script>
+</body>
+</html>
