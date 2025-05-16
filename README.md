@@ -9,22 +9,22 @@ A cute and effective Pomodoro study timer that rewards your progress with an evo
 
 ## 🌟 Features
 
-🍅 Pomodoro Timer
-✅ Task List and To-Dos
-🐾 Virtual Pet Companion
-💬 Motivational Quotes & Daily Mood Tracker
-⏱ Session Tracker
-📊 Progress Visualization
-🎨 Custom Themes
-🌗 Dark/Light Mode Toggle
-🔔 Session Notifications
-♻️ Reset All Progress
-🎯 Daily Goal Tracker
-⏩ Auto-start Next Session
-🔐 User Registration & Login
-🎶 Productivity Soundscapes
-📆 View Study History
-📝 Daily Recap Summary
+1) 🍅 Pomodoro Timer
+2) ✅ Task List and To-Dos
+3) 🐾 Virtual Pet Companion
+4) 💬 Motivational Quotes & Daily Mood Tracker
+5) ⏱ Session Tracker
+6) 📊 Progress Visualization
+7) 🎨 Custom Themes
+8) 🌗 Dark/Light Mode Toggle
+9) 🔔 Session Notifications
+10) ♻️ Reset All Progress
+11) 🎯 Daily Goal Tracker
+12) ⏩ Auto-start Next Session
+13) 🔐 User Registration & Login
+14) 🎶 Productivity Soundscapes
+15) 📆 View Study History
+16) 📝 Daily Recap Summary
 
 ---
 
