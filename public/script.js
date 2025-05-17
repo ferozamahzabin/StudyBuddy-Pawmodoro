@@ -27,14 +27,14 @@ function saveTimerState() {
     completedPomodoros,
     lastUpdated: Date.now()
   }));
-  console.log('Saved timer state:', { timeLeft, isRunning, completedPomodoros }); // Debug log
+  console.log('Saved timer state:', { timeLeft, isRunning, completedPomodoros }); 
 }
 
 function loadTimerState() {
   const saved = localStorage.getItem('timerState');
   if (saved) {
     const { timeLeft: savedTime, isRunning: savedRunning, completedPomodoros: savedPomodoros, lastUpdated } = JSON.parse(saved);
-    console.log('Loaded timer state:', { savedTime, savedRunning, savedPomodoros, lastUpdated }); // Debug log
+    console.log('Loaded timer state:', { savedTime, savedRunning, savedPomodoros, lastUpdated }); 
     
     completedPomodoros = savedPomodoros;
     completedCount.textContent = completedPomodoros;
@@ -52,7 +52,7 @@ function loadTimerState() {
         finishSound.play();
         showConfetti();
         evolvePet();
-        timeLeft = 25 * 60; // Reset to 25:00
+        timeLeft = 25 * 60; 
       }
       
       updateTimerDisplay();
@@ -60,15 +60,14 @@ function loadTimerState() {
       
       // Actually restart the timer if it was running
       if (timeLeft > 0) {
-        console.log('Resuming timer with timeLeft:', timeLeft); // Debug log
+        console.log('Resuming timer with timeLeft:', timeLeft); 
         isRunning = true;
-        startTimer(); // This will properly restart the interval
+        startTimer();
       } else {
         isRunning = false;
         saveTimerState();
       }
     } else {
-      // Timer wasn't running, just restore the state
       timeLeft = savedTime;
       isRunning = false;
       updateTimerDisplay();
@@ -80,8 +79,8 @@ function loadTimerState() {
 // --- CONTROLLER FUNCTIONS ---
 function startTimer() {
   if (timer !== null) {
-    console.log('Timer already running, clearing existing interval'); // Debug log
-    clearInterval(timer); // Always clear existing interval before starting a new one
+    console.log('Timer already running, clearing existing interval'); 
+    clearInterval(timer); 
   }
   
   console.log('Starting timer with timeLeft:', timeLeft); // Debug log
@@ -105,7 +104,7 @@ function startTimer() {
         saveTimerState();
       }
     } catch (error) {
-      console.error('Error in timer interval:', error); // Error log
+      console.error('Error in timer interval:', error); 
       clearInterval(timer);
       timer = null;
       isRunning = false;
@@ -120,7 +119,7 @@ function pauseTimer() {
   timer = null;
   isRunning = false;
   saveTimerState();
-  console.log('Timer paused'); // Debug log
+  console.log('Timer paused');
 }
 
 function resetTimer() {
@@ -130,7 +129,7 @@ function resetTimer() {
   timeLeft = 25 * 60;
   updateTimerDisplay();
   saveTimerState();
-  console.log('Timer reset'); // Debug log
+  console.log('Timer reset');
 }
 
 // --- VIEW EFFECTS ---
@@ -158,7 +157,6 @@ startBtn.addEventListener('click', startTimer);
 pauseBtn.addEventListener('click', pauseTimer);
 resetBtn.addEventListener('click', resetTimer);
 
-// ========== TO-DO LIST FEATURE ==========
 
 // --- MODEL (To-do list state) ---
 const todoForm = document.getElementById('todo-form');
@@ -195,7 +193,6 @@ todoForm.addEventListener('submit', (e) => {
   updateTaskStats();
 });
 
-// ========== THEME & DARK MODE ==========
 
 // --- MODEL ---
 let userSettings = {
@@ -227,11 +224,9 @@ function loadSettings() {
   applyUserSettings();
 }
 
-// Add page visibility event listener to handle page switching
 document.addEventListener('visibilitychange', function() {
   if (document.visibilityState === 'visible') {
     console.log('Page is now visible, checking timer state');
-    // If timer should be running but interval is null, restart it
     if (isRunning && timer === null) {
       console.log('Timer was running but interval was lost, restarting');
       startTimer();
@@ -239,6 +234,5 @@ document.addEventListener('visibilitychange', function() {
   }
 });
 
-// --- INIT ---
 loadSettings();
 loadTimerState();
